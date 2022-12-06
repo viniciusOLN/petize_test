@@ -1,19 +1,19 @@
 import 'package:petize_test/app/features/github_user/domain/entitites/user_repositories.dart';
 
-class UserRepositoriesModel extends RepositoryUser {
-  UserRepositoriesModel({
+class UserRepositoryModel extends RepositoryUser {
+  UserRepositoryModel({
     required super.name,
     required super.description,
     required super.updatedAt,
     required super.starsRepository,
   });
 
-  factory UserRepositoriesModel.fromJson(Map<String, dynamic> json) {
-    return UserRepositoriesModel(
+  factory UserRepositoryModel.fromJson(Map<String, dynamic> json) {
+    return UserRepositoryModel(
       name: json['name'],
       description: json['description'] ?? 'Sem descrição',
       updatedAt: json['updated_at'],
-      starsRepository: json['targazers_count'],
+      starsRepository: json['stargazers_count'],
     );
   }
 
