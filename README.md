@@ -23,7 +23,8 @@ Tecnologias utilizadas: Flutter, http, bloc e clean architecture.
     Obs: Caso não queira seguir esses tutoriais, faça o seguinte : Com o fluter instalado na sua máquina, baixe o projeto e use o comando: flutter build apk, esse comando irá baixar o apk do projeto. Feito isso acesse o diretório:  [flutter-project]/build/app/outputs/apk/release/app-release.apk, pegue o apk-release.apk e mande pro celular, baixe o apk no seu celular e bom uso(fazendo isso, não rodando no emulador ou celular baseado no flutter run, o aplicativo fica mais otimizado!).
     
 # Motivações de tecnologias
-    As escolhas para as tecnologias foram com base no desafio proposto. Optei também pela implementação de bloc de forma manual, seguindo somente com alguns pacotes para ajudar no consumo de Stream na parte dos widgets. Utilizei também Clean Architecture com o pacote DartZ e Equatable(para os testes) pois acredito que encaixa bem com a proposta de Flutter Modular, onde pude testar separadamente cada camada e injetar outras de forma organizada e de melhor entendimento e manuntenção do código.
+    
+  As escolhas para as tecnologias foram com base no desafio proposto. Optei também pela implementação de bloc de forma manual, seguindo somente com alguns pacotes para ajudar no consumo de Stream na parte dos widgets. Utilizei também Clean Architecture com o pacote DartZ e Equatable(para os testes) pois acredito que encaixa bem com a proposta de Flutter Modular, onde pude testar separadamente cada camada e injetar outras de forma organizada e de melhor entendimento e manuntenção do código.
     
 #Estrutura do projeto
    
