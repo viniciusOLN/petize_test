@@ -10,7 +10,7 @@ class MockUserDomainRepository extends Mock implements UserDomainRepository {}
 
 void main() {
   MockUserDomainRepository repository = MockUserDomainRepository();
-  GetUserUsecase usecase = GetUserUsecase(repository);
+  GetUserUsecase usecase = GetUserUsecase(repository: repository);
   const tUsername = 'teste';
   final tUser = User(
     imageUser: 'github.com/rawimages/a.png',
