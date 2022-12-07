@@ -26,7 +26,10 @@ Tecnologias utilizadas: Flutter, http, bloc e clean architecture.
     As escolhas para as tecnologias foram com base no desafio proposto. Optei também pela implementação de bloc de forma manual, seguindo somente com alguns pacotes para ajudar no consumo de Stream na parte dos widgets. Utilizei também Clean Architecture com o pacote DartZ e Equatable(para os testes) pois acredito que encaixa bem com a proposta de Flutter Modular, onde pude testar separadamente cada camada e injetar outras de forma organizada e de melhor entendimento e manuntenção do código.
     
 #Estrutura do projeto
-    O projeto tem a seguinte estrutura:
+   
+    
+    
+     O projeto tem a seguinte estrutura:
     lib
      |-> app
           |-> data -> camada onde se pega os dados da api ou localmente.
@@ -40,5 +43,6 @@ Tecnologias utilizadas: Flutter, http, bloc e clean architecture.
           |       |-> usecase -> local que encapsulará o repositório injetado da data layer.
           |       
           |-> presentation -> camada que contém a parte da interface, nela temos a Ui, controllers com gerenciamento de estado e widgets no geral.
-    
-    Os demais arquivos são Widgets e estilos utilizados dentro do projeto e também o arquivo que contém a parte de injeção de dependências, onde injetamos em cada uma das camadas seus respectivos repositórios, casos de uso e provedor de dados.
+      
+     
+     Os demais arquivos são Widgets e estilos utilizados dentro do projeto e também o arquivo que contém a parte de injeção de dependências, onde injetamos em cada uma das camadas seus respectivos repositórios, casos de uso e provedor de dados.
