@@ -22,10 +22,18 @@ class GetUserDatasourceImpl implements GetUserDatasource {
 
   @override
   Future<List<UserRepositoryModel>> getUserRepositories(String username) async {
-    throw UnimplementedError();
+    List<UserRepositoryModel> listRepositories = [];
+
+    final json =
+        await _requisition('https://api.github.com/users/$username/repos');
+    json
+        .map((item) => listRepositories.add(UserRepositoryModel.fromJson(item)))
+        .toList();
+
+    return listRepositories;
   }
 
-  Future<Map<String, dynamic>> _requisition(String url) async {
+  Future _requisition(String url) async {
     http.Response response = await client.get(
       Uri.parse(url),
     );
