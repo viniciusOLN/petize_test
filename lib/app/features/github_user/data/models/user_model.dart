@@ -23,9 +23,9 @@ class UserModel extends User {
       followers: json['followers'] ?? '',
       following: json['following'] ?? '',
       bio: json['bio'] ?? '',
-      company: json['company'] ?? '',
+      company: json['company'] ?? 'Não informado',
       location: json['location'] ?? 'Não informado',
-      email: json['email'] ?? '',
+      email: json['email'] ?? 'Não informado',
       blog: json['blog'] ?? '',
       twitterUsername: json['twitter_username'] ?? '',
     );
