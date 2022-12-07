@@ -24,7 +24,7 @@ Tecnologias utilizadas: Flutter, http, bloc e clean architecture.
     
 # Motivações de tecnologias
     
-  As escolhas para as tecnologias foram com base no desafio proposto. Optei também pela implementação de bloc de forma manual, seguindo somente com alguns pacotes para ajudar no consumo de Stream na parte dos widgets. Utilizei também Clean Architecture com o pacote DartZ e Equatable(para os testes) pois acredito que encaixa bem com a proposta de Flutter Modular, onde pude testar separadamente cada camada e injetar outras de forma organizada e de melhor entendimento e manuntenção do código.
+  As escolhas para as tecnologias foram com base no desafio proposto. Optei também pela implementação de bloc de forma manual, seguindo somente com alguns pacotes para ajudar no consumo de Stream na parte dos widgets. Utilizei também Clean Architecture com o pacote DartZ e Equatable(para os testes) pois acredito que encaixa bem com a proposta de Flutter Modular, onde pude testar separadamente cada camada e injetar outras de forma organizada e de melhor entendimento e manuntenção do código. Utilizei também o pacote mocktail como forma de mockar as classes que envolviam dados, optei por ele pela facilidade de mockar classes, diferente do mockito em sua última versão que precisavam de alguns passos a mais para a mockagem.
     
 #Estrutura do projeto
    
