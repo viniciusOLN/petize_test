@@ -6,7 +6,7 @@ import 'package:petize_test/app/features/github_user/domain/repositories/user_re
 class GetUserUsecase {
   final UserDomainRepository repository;
 
-  GetUserUsecase(this.repository);
+  GetUserUsecase({required this.repository});
 
   Future<Either<Failure, User>> getUser(String username) async {
     return await repository.getUserByUsername(username);
