@@ -5,6 +5,7 @@ import 'package:petize_test/app/features/github_user/presentation/blocs/bloc/use
 import 'package:petize_test/app/features/github_user/presentation/blocs/events/repository_event.dart';
 import 'package:petize_test/app/features/github_user/presentation/blocs/states/repository_state.dart';
 import 'package:petize_test/app/utils/widgets/loading_transparent.dart';
+import '../../../../utils/style.dart';
 import 'widgets/infos_user.dart';
 import 'widgets/repositories_column.dart';
 
@@ -19,33 +20,34 @@ class InfosUser extends StatelessWidget {
       SearchRepositoriesEvent(username: bloc.user.username),
     );
 
-    return SafeArea(
-      child: Scaffold(
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              InfosUserWidget(
-                user: bloc.user,
-              ),
-              BlocBuilder<RepositoryBLoc, RepositoryState>(
-                bloc: blocRepository,
-                builder: (context, state) {
-                  if (state is RepositoryInitialState) {
-                    return const LoadingTransparent();
-                  } else if (state is RepositorySuccessState) {
-                    return Repositories(
-                      user: blocRepository.user,
-                    );
-                  } else if (state is RepositoryErrorState) {
-                    return const Text(
-                      'Erro ao tentar conseguir repositórios.',
-                    );
-                  }
-                  return Container();
-                },
-              ),
-            ],
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: colorInfos,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            InfosUserWidget(
+              user: bloc.user,
+            ),
+            BlocBuilder<RepositoryBLoc, RepositoryState>(
+              bloc: blocRepository,
+              builder: (context, state) {
+                if (state is RepositoryInitialState) {
+                  return const LoadingTransparent();
+                } else if (state is RepositorySuccessState) {
+                  return Repositories(
+                    user: blocRepository.user,
+                  );
+                } else if (state is RepositoryErrorState) {
+                  return const Text(
+                    'Erro ao tentar conseguir repositórios.',
+                  );
+                }
+                return Container();
+              },
+            ),
+          ],
         ),
       ),
     );
