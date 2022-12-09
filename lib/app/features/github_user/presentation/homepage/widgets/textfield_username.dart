@@ -22,8 +22,8 @@ class TextFieldUsername extends StatelessWidget {
           contentPadding: EdgeInsets.all(10),
           hintTextDirection: TextDirection.ltr,
           alignLabelWithHint: false,
-          labelText: 'Label',
-          hintText: 'Search',
+          labelText: 'Digite o usuário',
+          hintText: 'Ex: viniciusoln',
           hintStyle: defaultColorTextFormHomePage,
           prefix: Padding(
             padding: const EdgeInsets.only(top: 5),
