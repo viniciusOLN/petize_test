@@ -3,8 +3,13 @@ import 'package:flutter/material.dart';
 import '../../../../../utils/style.dart';
 
 class TextFieldUsername extends StatelessWidget {
+  TextEditingController controllerInput;
   Function(String) onTap;
-  TextFieldUsername({Key? key, required this.onTap}) : super(key: key);
+  TextFieldUsername({
+    Key? key,
+    required this.onTap,
+    required this.controllerInput,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +21,7 @@ class TextFieldUsername extends StatelessWidget {
             ),
       ),
       child: TextFormField(
+        controller: controllerInput,
         onFieldSubmitted: onTap,
         textAlignVertical: TextAlignVertical.center,
         decoration: const InputDecoration(
