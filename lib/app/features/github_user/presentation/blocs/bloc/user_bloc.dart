@@ -16,6 +16,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   late User user;
   String messageError = '';
   String usernameSearch = '';
+  TextEditingController controllerInput = TextEditingController();
 
   Sink<UserEvent> get inputUser => _inputUserController.sink;
   Stream<UserState> get stream => _outputUserController.stream;
@@ -33,6 +34,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       _handleError(failure);
     }, (userReturn) {
       user = userReturn;
+      controllerInput.clear();
       Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
         return InfosUser(bloc: bloc);
       }));
