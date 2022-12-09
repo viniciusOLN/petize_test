@@ -3,6 +3,7 @@ import 'package:petize_test/app/core/error/exceptions.dart';
 import 'package:petize_test/app/features/github_user/data/models/user_model.dart';
 import 'package:petize_test/app/features/github_user/data/models/user_repositories_model.dart';
 import 'package:http/http.dart' as http;
+import 'package:petize_test/app/utils/api_routes.dart';
 
 abstract class GetUserDatasource {
   Future<UserModel> getUserByUsername(String username);
@@ -16,7 +17,7 @@ class GetUserDatasourceImpl implements GetUserDatasource {
 
   @override
   Future<UserModel> getUserByUsername(String username) async {
-    final json = await _requisition('https://api.github.com/users/$username');
+    final json = await _requisition('${Url.base}$username');
     return UserModel.fromJson(json);
   }
 
@@ -24,8 +25,7 @@ class GetUserDatasourceImpl implements GetUserDatasource {
   Future<List<UserRepositoryModel>> getUserRepositories(String username) async {
     List<UserRepositoryModel> listRepositories = [];
 
-    final json =
-        await _requisition('https://api.github.com/users/$username/repos');
+    final json = await _requisition('${Url.base}$username${Url.repos}');
     json
         .map((item) => listRepositories.add(UserRepositoryModel.fromJson(item)))
         .toList();
