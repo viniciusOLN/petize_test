@@ -24,17 +24,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     _outputUserController.add(UserInitialState());
   }
 
-  getRepositories(String username) async {
-    _outputUserController.add(UserInitialState());
-    final result = await GetUserContainer.usecaseRepositories.getUser(
-      username,
-    );
-    result.fold((l) {}, (repositories) {
-      user.repositoriesUser.addAll(repositories);
-      _outputUserController.add(UserSuccessState(user: user));
-    });
-  }
-
   getUser(String name, BuildContext context, UserBloc bloc) async {
     final userOrError = await GetUserContainer.usecase.getUser(
       name,
