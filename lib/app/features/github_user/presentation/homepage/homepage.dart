@@ -31,15 +31,26 @@ class HomePage extends StatelessWidget {
                     } else if (state is UserSuccessState) {
                       return Container();
                     } else if (state is UserErrorState) {
-                      return Text(state.message);
+                      return Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                            padding: EdgeInsets.only(bottom: 15),
+                            child: Text(
+                              state.message,
+                              style: TextStyle(color: Colors.red),
+                            )),
+                      );
                     }
                     return Container();
                   },
                 ),
-                TextFieldUsername(onTap: (String value) async {
-                  bloc.usernameSearch = value;
-                  await bloc.getUser(value, context, bloc);
-                }),
+                TextFieldUsername(
+                  controllerInput: bloc.controllerInput,
+                  onTap: (String value) async {
+                    bloc.usernameSearch = value;
+                    await bloc.getUser(value, context, bloc);
+                  },
+                ),
               ],
             ),
           ],
