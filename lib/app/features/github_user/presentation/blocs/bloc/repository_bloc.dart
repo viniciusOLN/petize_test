@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:petize_test/app/features/github_user/domain/entitites/user_repositories.dart';
 import 'package:petize_test/app/features/github_user/presentation/blocs/events/repository_event.dart';
 import 'package:petize_test/app/features/github_user/presentation/blocs/states/repository_state.dart';
 import 'package:petize_test/app/inject_dependencies.dart';
@@ -28,6 +29,12 @@ class RepositoryBLoc extends Bloc<RepositoryEvent, RepositoryState> {
     }
   }
 
+  List<RepositoryUser> _orderRepositories(List<RepositoryUser> repos) {
+    List<RepositoryUser> ordenated = repos.toList();
+    ordenated.sort((a, b) => b.starsRepository.compareTo(a.starsRepository));
+    return ordenated;
+  }
+
   getRepositories(String username) async {
     _outputUserController.add(RepositoryInitialState());
     final result = await GetUserContainer.usecaseRepositories.getUser(
@@ -36,9 +43,15 @@ class RepositoryBLoc extends Bloc<RepositoryEvent, RepositoryState> {
     result.fold((failure) {
       _handleError(failure);
     }, (repositories) {
-      user.repositoriesUser.addAll(repositories);
-      _outputUserController
-          .add(RepositorySuccessState(repository: user.repositoriesUser));
+      List<RepositoryUser> ordenatedRepositories = _orderRepositories(
+        repositories,
+      );
+
+      user.repositoriesUser = ordenatedRepositories;
+
+      _outputUserController.add(
+        RepositorySuccessState(repository: user.repositoriesUser),
+      );
     });
   }
 
